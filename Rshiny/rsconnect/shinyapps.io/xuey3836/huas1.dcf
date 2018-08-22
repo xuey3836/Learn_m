@@ -1,0 +1,13 @@
+name: huas1
+title: huas1
+username:
+account: xuey3836
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 404887
+bundleId: 1548512
+url: https://xuey3836.shinyapps.io/huas1/
+when: 1534942593.79703
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: app1.R|cheatsheet.pdf|example.R|huashengjiang.jpg|huashengyou.jpg|test.R|花生品质功能预测软件设计.docx|shinyapp/server.R|shinyapp/ui.R

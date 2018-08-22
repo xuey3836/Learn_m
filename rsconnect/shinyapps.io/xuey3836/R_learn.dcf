@@ -1,0 +1,13 @@
+name: R_learn
+title: R_learn
+username:
+account: xuey3836
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 404893
+bundleId: 1548522
+url: https://xuey3836.shinyapps.io/R_learn/
+when: 1534942876.97308
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: peanut/app12.R|Rgpu/ref_network.txt|Rcpp|Rshiny
