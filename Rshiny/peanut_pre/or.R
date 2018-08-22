@@ -1,5 +1,5 @@
 library(shiny)
-ui <- fluidPage(
+ui <- navbarPage(title = "")(
   # Application title
   headerPanel("花生品质功能预测"),
   flowLayout( # object 1,
