@@ -5,8 +5,10 @@ ui <- fluidPage(
   flowLayout( # object 1,
     # object 2,
     # object 3
-    # numericInput("含水量", "含水量  g/100g", 10),
-    numericInput("脂肪含量", "脂肪含量  g/100g", value = 10),
+    numericInput("含水量", "含水量  g/100g", 10),
+    numericInput("含油量", "含油量  g/100g", 10),
+    numericInput("酸价","酸价", 1 ),
+    # numericInput("含油量", "含油量  g/100g", value = 10),
     numericInput("蛋白质含量","蛋白质含量 g/100g", value=10),
     numericInput("棕榈酸", "棕榈酸  g/100g", 10),
     numericInput("蛋氨酸","蛋氨酸 g/100g", value = 10),
@@ -41,12 +43,16 @@ server <- function(input, output) {
   
   # Show the first "n" observations
   output$huashengyou= renderPrint({
-    u1 = 97.206 - 0.2379*input$棕榈酸^2- 7.8023*input$花生酸^2+0.06354/(input$花生酸^2)-
-      1.73304*input$亚油酸/input$棕榈酸- 2320.118/input$脂肪含量- 117.1463/input$油酸-
-      0.01299*input$脂肪含量^2- 0.1002*input$OL^2+0.01044*input$不饱和脂肪酸
-    u2 = 102.45 - 0.2379*input$棕榈酸^2- 7.8023*input$花生酸^2+0.06354/(input$花生酸^2)-
-      1.73304*input$亚油酸/input$棕榈酸- 2320.118/input$脂肪含量- 117.1463/input$油酸 -
-      0.01299*input$脂肪含量^2- 0.1002*input$OL^2+0.01044*input$不饱和脂肪酸
+    u1 = 13.725 - 0.417*input$棕榈酸^2 + 0.00167*input$亚油酸^2- 7.059*input$花生酸^2-
+      0.831*input$亚油酸/input$棕榈酸- 0.218*input$亚油酸/input$花生酸+1.994/input$酸价-
+      25.588/input$油酸-0.017*input$含水量^2- 0.0031*input$含油量- 0.0576*input$OL^2+0.072*input$油酸+
+      0.189*input$不饱和脂肪酸+2.006*input$含水量*input$酸价- 0.562*input$酸价*input$油酸-
+      0.143*input$酸价*input$OL
+    u2 = 20.849 - 0.417*input$棕榈酸^2 + 0.00167*input$亚油酸^2- 7.059*input$花生酸^2-
+      0.831*input$亚油酸/input$棕榈酸- 0.218*input$亚油酸/input$花生酸+1.994/input$酸价-
+      25.588/input$油酸-0.017*input$含水量^2- 0.0031*input$含油量- 0.0576*input$OL^2+0.072*input$油酸+
+      0.189*input$不饱和脂肪酸+2.006*input$含水量*input$酸价- 0.562*input$酸价*input$油酸-
+      0.143*input$酸价*input$OL
     # u1 = 3
     # u2 = 2
     v1 = exp(u1)
@@ -59,10 +65,10 @@ server <- function(input, output) {
     })
   output$huashengjiang <- renderPrint({
     u1 = -135.3133-121.3634*input$蛋氨酸^2-2.3718/(input$蛋氨酸^2)+8.5160/(input$OL^2)+
-      13.6826*log(input$脂肪含量)+48.4477*log(input$蛋白质含量)+15.6472*log(input$天门冬氨酸)-15.7329*log(input$油酸)-
+      13.6826*log(input$含油量)+48.4477*log(input$蛋白质含量)+15.6472*log(input$天门冬氨酸)-15.7329*log(input$油酸)-
       2.0589*input$精氨酸^2
     u2 = -128.5687-121.3634*input$蛋氨酸^2-2.3718/(input$蛋氨酸^2)+8.5160/(input$OL^2)+
-      13.6826*log(input$脂肪含量)+48.4477*log(input$蛋白质含量)+15.6472*log(input$天门冬氨酸)-15.7329*log(input$油酸)-
+      13.6826*log(input$含油量)+48.4477*log(input$蛋白质含量)+15.6472*log(input$天门冬氨酸)-15.7329*log(input$油酸)-
       2.0589*input$精氨酸^2
     v1 = exp(u1)
     v2 = exp(u2)
