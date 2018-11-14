@@ -114,7 +114,7 @@ server <- function(input, output) {
       p = p2- p1 
       if ( p >0.33){
         return(cat("适宜"))
-      }else if( -0.33 < p | p < 0.33){
+      }else if( -0.33 < p & p < 0.33){
         return(cat("基本适宜"))
       }else{
         return(cat("不适宜"))
@@ -133,7 +133,7 @@ server <- function(input, output) {
       p = p2- p1 
       if ( p >0.33){
         return(cat("适宜"))
-      }else if( -0.33 < p | p < 0.33){
+      }else if( -0.33 < p & p < 0.33){
         return(cat("基本适宜"))
       }else{
         return(cat("不适宜"))
