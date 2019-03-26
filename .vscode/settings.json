@@ -1,0 +1,13 @@
+{
+    "python.pythonPath": "C:\\Users\\xuey3\\AppData\\Local\\Programs\\Python\\Python36\\python.exe",
+    "python.unitTest.unittestArgs": [
+        "-v",
+        "-s",
+        "./python",
+        "-p",
+        "test*.py"
+    ],
+    "python.unitTest.pyTestEnabled": false,
+    "python.unitTest.nosetestsEnabled": false,
+    "python.unitTest.unittestEnabled": true
+}
