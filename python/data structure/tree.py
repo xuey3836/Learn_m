@@ -144,3 +144,42 @@ root.PrintTree()
 root.PostorderTraversal(root)
 root.level_queue(root)
 
+
+
+def func(a):
+    if a< 1e-6:
+        return 0
+    last = a
+    c = a/2
+    while abs(c - last) > 1e-6:
+        f = c*c - a
+        f1 = 2*c
+        last = c
+        c = c - f/f1
+    return c
+
+a = [2, 3, 1, 4, 2, 1, 1, 1, 1]
+
+ns = 3
+grid = [0]*ns
+for i in range(ns):
+    grid[i] = a[i*ns:ns*(i+1)]
+minPathSum(grid)
+def minPathSum( grid):
+    if grid == None :
+        return 0
+    if len(grid)==0 or len(grid[0])==0:
+        return sum(grid)
+    row = len(grid)
+    loc = len(grid[0])
+    dp = grid
+    for i in range(1,row):
+        dp[i][0] = dp[i-1][0] + grid[i][0]
+    for i in range(1,loc):
+        dp[0][i] = dp[0][i-1] + grid[0][i]
+    for i in range(1,row):
+        for j in range(1,loc):
+            dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1])
+    
+    return dp[i][j]
+
